@@ -9,7 +9,7 @@ form.addEventListener('submit', (e) => {
     const email = document.getElementById('email').value.trim()
     const queryType = document.querySelector('input[name="query-type"]:checked')
     const message = document.getElementById('message').value.trim()
-    const consent = document.querySelector('#consent').checked
+    const consent = document.getElementById('consent').checked
 
     const formAlert = document.querySelectorAll('.form-alert')
 
@@ -63,12 +63,13 @@ form.addEventListener('submit', (e) => {
         document.querySelector('#message').style.border = '1px solid var(--Grey-medium)'
     }
 
-    // Consent validation    
+    // Consent validation
     if(!consent) {
         isValid = false
-        document.querySelector('#consent + .form-alert').style.display = 'block'
+
+        formAlert[5].classList.add('form-error')
     } else {
-        document.querySelector('#consent + .form-alert').style.display = 'none'
+        formAlert[5].classList.remove('form-error')
     }
 
     //Form is valid
